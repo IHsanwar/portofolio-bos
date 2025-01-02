@@ -1243,10 +1243,16 @@ section,
 .portfolio .portfolio-content {
   position: relative;
   overflow: hidden;
+  width: 400px;
+  height: 300px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .portfolio .portfolio-content img {
   transition: 0.3s;
+  width: 350px;
+  height: 200px;
 }
 
 .portfolio .portfolio-content .portfolio-info {
@@ -1474,3 +1480,8 @@ section,
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
+
+
+
+
+
