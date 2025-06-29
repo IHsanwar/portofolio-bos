@@ -1,136 +1,605 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Personal Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta property="og:title" content="Ihsan Wardhana Ristiarto - Portfolio">
-  <meta property="og:description" content="Welcome to my personal website. Explore my projects, skills, and contact details.">
-  <meta property="og:image" content="https://i.imgur.com/m5iCHKt.jpeg">
-  <meta property="og:url" content="https://ihsanwd10.my.id">
-  <meta property="og:type" content="website">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ihsan Wardhana Ristiarto</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@11/swiper-bundle.min.css"
+/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        accent: '#4f46e5',
+                        textColor: '#1e293b',
+                        lightBg: '#f8fafc',
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<style>
+    .blinking-cursor {
+    animation: blink 1s step-start infinite;
+  }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  /* Keyframes sliding */
+@keyframes slide-x {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* -50% karena kita duplikasi 2× */
+}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+/* Terapkan animasi ke trek */
+.slider-track {
+  animation: slide-x 25s linear infinite;
+}
+ html {
+    scroll-behavior: smooth;
+  }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+</style>
 
-  <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
+<body class="bg-lightBg text-textColor font-montserrat">
+    <header>
+    
 
-<body class="index-page">
+        <div class="container max-w-7xl mx-auto px-5 fixed top-0 z-50 bg-white shadow-md">
+            <nav class="flex justify-between items-center py-5">
+                <div class="text-3xl font-bold">
+                    Ihsan<span class="text-primary"> Wardhana R</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="font-medium hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="font-medium hover:text-primary transition-colors">About</a>
+                    <a href="#services" class="font-medium hover:text-primary transition-colors">Skills</a>
+                    <a href="#projects" class="font-medium hover:text-primary transition-colors">Projects</a>
+                    <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/IHsanwar" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ihsan-wardhana-r-6812492a2/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/ihwr08/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="relative overflow-hidden my-12 px-5 min-h-[80vh] flex items-center">
+        <div class="container max-w-7xl mx-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
+                <div data-aos="fade-up" class="inline-block px-4 py-2 rounded-full bg-primary bg-opacity-10 text-primary font-semibold mb-5">
+                    <i class="fas fa-bolt mr-2"></i> Hello!
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl leading-tight font-bold mb-5">
+                        My name is Ihsan! I'm<br>
+                        <span class="inline-block  text-primary bg-slate-200" id="animated-text">Junior</span>
+                       
+                        <span class="text-accent"><br> Developer.</span>
+                        </h1>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+                
+                <p class="text-xl text-gray-500 mb-8 max-w-lg">
+                    I am Ihsan Wardhana Ristiarto, a passionate web developer specializing in creating beautiful and functional web applications. 
+                    With expertise in Python, Laravel, and API development, I strive to deliver high-quality digital solutions.
+                </p>
+                
+                <div class="flex space-x-5 mt-8">
+                    <a href="#projects" class="px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-accent hover:-translate-y-1">
+                        View Projects <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact" class="px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold transition-all hover:bg-primary hover:text-white hover:-translate-y-1">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative w-full md:w-2/5 flex justify-center" data-aos="fade-left">
+                <img src="https://ihsanwd10.my.id/assets/img/wajahrill.jpeg" alt="Hero Image" class="w-full max-w-md rounded-lg shadow-lg transform transition-transform hover:scale-105">
+                <div class="absolute bottom-1/10 right-1/10 w-12 h-12 bg-primary bg-opacity-10 rounded-full"></div>
+                <div class="absolute top-1/5 right-1/5 w-8 h-8 bg-primary bg-opacity-10 rounded-full"></div>
+            </div>
+        </div>
+        
+          </section>
+    
+    <section id="about" class="py-20 bg-white">
+        <div class="container max-w-7xl mx-auto px-5" data-aos="fade-up">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-primary mb-4 inline-block relative">
+                    About Me
+                    <span class="absolute w-1/2 h-1 bg-accent bottom-0 left-1/4 -mb-2"></span>
+                </h2>
+                <p class="text-lg text-textColor opacity-80">
+                
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
+                <img 
+                    src="https://ihsanwd10.my.id/assets/img/wajahrill.jpeg" 
+                    alt="About Me" 
+                    class="w-64 h-64 rounded-lg shadow-lg object-cover transition-transform hover:-translate-y-2 shadow-lg hover:shadow-xl transform hover:scale-105 mb-8 md:mb-0"
+                >
+                
+                <div class="flex-1 border border-gray-200 p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-primary mb-5">Hi, I'm Ihsan Wardhana R</h3>
+                    <p class="mb-4 leading-relaxed">
+                        I specialize in building application. With a strong foundation in python, laravel and API development. I create seamless digital experiences that engage users and drive results.
+                    </p>
+                    <p class="mb-4 leading-relaxed">
+                        My goal is to combine creativity with technology to deliver high-quality web solutions that meet the needs of my clients.
+                    </p>
+                    <p class="mb-4 leading-relaxed">
+                    <a href="assets/CV Ihsan Wardhana R.pdf" target="_blank" class="text-primary font-semibold hover:underline">
+                        Check Out My CV >></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="py-20">
+        <div class="container max-w-7xl mx-auto px-5">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4" data-aos="zoom-out">What I Do</h2>
+                <p class="text-lg text-gray-500">
+                    Delivering exceptional digital experiences through my services
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+               
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
+                        <i class="fas fa-gear"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4"  >API Development</h3>
+                    <p>Designing beautiful and intuitive interfaces that enhance user experience and engagement.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up" data-aos-delay="300">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
+                        <i class="fa-brands fa-python"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4"  >Python Development</h3>
+                    <p>Build application with python for AI Agent, API communication, Web development and full developed application</p>
+                </div>
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">Portfolio</h1>
-      </a>
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500" >
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
+                        <i class="fa-brands fa-laravel"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4" >Laravel Development</h3>
+                    <p>Build full scalable application with laravel frameworks for web based application development</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="portfolio.html">Projects</a></li>
-          
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+    <sevtion id="skills" class="py-20 bg-lightBg">
+        <div class="container max-w-7xl mx-auto px-5">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-4" >Tech Stacks </h2>
+                <p class="text-lg text-gray-500">
+                    A list of my skills and expertise in various technologies.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up" >
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-python"></i> Python</h3>
+                    <p>Experienced in building applications using Python, including Flask and Django frameworks.</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-laravel" ></i> Laravel</h3>
+                    <p>Proficient in developing web applications using Laravel, focusing on clean code and best practices.</p>
+                </div>
 
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 flex "><svg width="30px" xmlns="http://www.w3.org/2000/svg" class="mr-2" viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#000"/></svg> Tailwind CSS</h3>
+<p> Skilled in designing and implementing designs using Tailwind  CSS</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-robot"></i> AI Tools</h3>
+                    <p>Experience in building AI-powered applications, including chatbots and intelligent assistants.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-figma"></i> Figma</h3>
+                    <p>Familiar with Figma for designing and creating prototype for application development.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-database"></i> Databases</h3>
+                    <p>I'm familiar with some database management system like MySQL, SQLite and Postgres SQL</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-react"></i> React JS </h3>
+                    <p>Creating application for AI Agent using Open AI GPT (or other models).</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-git-alt"></i> Git</h3>
+                    <p>Version control using github and gitlab for developing tools.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-gear"></i> Other tools</h3>
+                    <p>Familiar on using developing tools like Postman, Unit testing, Termius, Vercel and Laragon</p>
+                </div>
+            </div>
+        </div>  
+    </section>
+    
+    <section id="experience" class="py-20 bg-white">
+        <div class="container max-w-7xl mx-auto px-5">
+            <div class="text-center mb-16" data-aos="fade-bottom">
+                <h2 class="text-4xl font-bold mb-4">Experiences</h2>
+                <p class="text-lg text-gray-500">
+                    A brief overview of my professional journey and skills.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
+                    <h5 class="text-lg font-light mb-2">June 2024 - August 2024</h5>
+                    <h3 class="text-xl font-bold mb-4">Intern Python API Developer at <span class="font-bold italic text-blue-400"> Smart Sintesa ID </span></h3>
+                    <p>Creating API function for proctoring application with Flask Python and MySQL</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+                    <h5 class="text-lg font-light mb-2">February 2025 - August 2025</h5>
+                    <h3 class="text-xl font-bold mb-4">Intern Laravel Developer at <span class="font-bold italic text-red-400"> PT Digital Forte</h3>
+                    <p>Building main backend program for Daycare Management Application and Security System management application with Laravel.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+                    <h5 class="text-lg font-light mb-2">July 2025</h5>
+                    <h3 class="text-xl font-bold mb-4">Leader and Backend Developer <br>"Cipher Event - AI Assistant" at <span class="font-bold italic text-orange-400">SMK Plus Pelita Nusantara</span></h3>
+                    <p>Leading and developing Cipher, an event AI Assitant to enhance visitor experience on "Pekant IT" event held by SMK Plus Pelita Nusantara</p>
+                </div>
+            </div>
+        </div>
+
+
+    <section id="projects" class="py-20">
+  <div class="container max-w-7xl mx-auto px-5">
+
+    <!-- Heading -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <h2 class="text-4xl font-bold mb-4">My Projects</h2>
+      <p class="text-lg text-gray-500">
+        A showcase of my work and projects that I have developed.
+      </p>
     </div>
-  </header>
 
-  <main class="main">
+    <!-- === SWIPER WRAPPER === -->
+    <div class="swiper myProjects relative" data-aos="fade-up" data-aos-delay="100">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+      <!-- Panah navigasi -->
+      <button
+        class="swiper-button-prev !text-primary !w-10 !h-10 !-left-4 md:!-left-8 after:!text-3xl"
+        aria-label="Previous">
+      </button>
+      <button
+        class="swiper-button-next !text-primary !w-10 !h-10 !-right-4 md:!-right-8 after:!text-3xl"
+        aria-label="Next">
+      </button>
 
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <!-- Container slide -->
+      <div class="swiper-wrapper" >
 
-      <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h2>Ihsan Wardhana R.</h2>
-        <p>I'm <span class="typed" data-typed-items="Web Developer,Fullstack Developer, REST API Developer">Programmer</span><span class="typed-cursor typed-cursor--blink"></span></p>
-        <div class="social-links">
-          
-          <a href="https://www.instagram.com/ihwr08/" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/6281293080153" target="_blank"><i class="bi bi-whatsapp"></i></a>
-          <a href=" https://gitlab.com/IhsanWar810" target="_blank"><i class="bi bi-gitlab"></i></a>
-          <a href="https://github.com/IHsanwar" target="_blank"><i class="bi bi-github"></i></a>
+        <!-- ==== SLIDE 1 ==== -->
+        <div class="swiper-slide flex justify-center">
+          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+            <img src="https://ihsanwd10.my.id/assets/img/portfolio/tickeasy.png" alt="TickEasy" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="text-xl font-bold mb-2">TickEasy</h3>
+              <p class="mb-4 text-gray-600">Ticketing application cashier registration with Laravel</p>
+              <div class="mt-auto">
+                <a href="https://github.com/IHsanwar/tickeasy" target="_blank"
+                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                  View Project
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      
-    </section><!-- /Hero Section -->
 
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <h3 class="sitename">Portfolio</h3>
-      <p></p>
-      
-      <div class="container">
-        <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">&copyihsanwar77@gmail.com</strong> <span>All Rights Reserved</span>
+        <!-- ==== SLIDE 2 ==== -->
+        <div class="swiper-slide flex justify-center">
+          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+            <img src="assets/cipherss.png" alt="Cipher" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="text-xl font-bold mb-2">Cipher – Event AI Agent Assistant</h3>
+              <p class="mb-4 text-gray-600">Event AI Assistant that serves for customer and visitor on "Pekan IT" Event held by SMK Plus Pelita Nusantara</p>
+              <div class="mt-auto flex flex-col gap-2">
+                <a href="https://cipher-chat-f5h1.vercel.app/" target="_blank"
+                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                  View Project <br>(AI Offline)
+                </a>
+                <a href="https://github.com/IHsanwar/cipher-chat" target="_blank"
+                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                  <i class="fa-brands fa-github"></i> Github
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+
+        <!-- ==== SLIDE 3 ==== -->
+        <div class="swiper-slide flex justify-center">
+          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+            <img src="assets/faces-recog.png" alt="Face Recognition" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="text-xl font-bold mb-2">Face Recognition App</h3>
+              <p class="mb-4 text-gray-600">Attendance app utilizing OpenCV2 face‑recognition.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/IHsanwar/frecognition" target="_blank"
+                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                  <i class="fa-brands fa-github"></i> Github
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+        <!-- ==== SLIDE 4 ==== -->
+        <div class="swiper-slide flex justify-center">
+          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+            <img src="assets/daycare.png" alt="Daycare" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="text-xl font-bold mb-2">Daycare Management System</h3>
+              <p class="mb-4 text-gray-600">System for PT Digital Forte</p>
+              <div class="mt-auto flex flex-col gap-2">
+                <a href="https://dcare.ihsanwd10.my.id" target="_blank"
+                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                  View Project
+                </a>
+                <a href="https://github.com/IHsanwar/be-daycare-dfi" target="_blank"
+                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                  <i class="fa-brands fa-github"></i> Github
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+      </div> <!-- /swiper-wrapper -->
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <!-- Bullet pagination (mobile) -->
+      <div class="swiper-pagination !bottom-0 md:!hidden"></div>
+    </div> <!-- /swiper -->
+  </div>
+</section>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
 
+    
+    <section id="contact" class="py-20 mx-8 bg-white" data-aos="fade-down">
+        <div class="container max-w-7xl mx-1 px-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Let's Work Together</h2>
+                    <p class="text-gray-500 mb-8">
+                        Below is my contact information if you want a project, collaboration, or just a chat, feel free to reach out! I'm always open to new opportunities and discussions.
+                    </p>
+                    
+                    <div class="space-y-4 mt-8">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span>ihsanwar77@gmail.com</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span>+62 812-9308-0153</span>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 text-primary flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span>Depok, West Java, Indonesia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <form>
+                    <div class="mb-5">
+                        <label for="name" class="block mb-2 font-medium">Name</label>
+                        <input type="text" id="name" placeholder="Your name" class="w-full p-3 border border-gray-200 rounded-lg text-base">
+                    </div>
+                    
+                    <div class="mb-5">
+                        <label for="email" class="block mb-2 font-medium">Email</label>
+                        <input type="email" id="email" placeholder="Your email" class="w-full p-3 border border-gray-200 rounded-lg text-base">
+                    </div>
+                    
+                    <div class="mb-5">
+                        <label for="message" class="block mb-2 font-medium">Message</label>
+                        <textarea id="message" placeholder="Your message" class="w-full p-3 border border-gray-200 rounded-lg text-base h-36 resize-y"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-accent">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-gray-800 text-white pt-12 pb-5 ">
+        <div class="container max-w-7xl mx-auto px-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <h3 class="text-xl font-bold mb-5 relative inline-block">
+                        About
+                        <span class="absolute left-0 bottom-0 w-8 h-0.5 bg-primary -mb-2"></span>
+                    </h3>
+                    <p>A passionate web developer focused on creating beautiful and functional websites and applications.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-5 relative inline-block">
+                        Links
+                        <span class="absolute left-0 bottom-0 w-8 h-0.5 bg-primary -mb-2"></span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-primary transition-colors">Projects</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary transition-colors">Skills</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-5 relative inline-block">
+                        Services
+                        <span class="absolute left-0 bottom-0 w-8 h-0.5 bg-primary -mb-2"></span>
+                    </h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Web Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">API Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">AI Development</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-5 relative inline-block">
+                        Connect
+                        <span class="absolute left-0 bottom-0 w-8 h-0.5 bg-primary -mb-2"></span>
+                    </h3>
+                    <div class="flex space-x-4 text-xl">
+                       <a href="https://github.com/IHsanwar" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ihsan-wardhana-r-6812492a2/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/ihwr08/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
+                </div>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-300 text-sm pt-5 border-t border-gray-700">
+                <p>&copy; 2025 Ihsan Wardhana R. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Swiper JS -->
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  new Swiper('.myProjects', {
+    loop: true,
+    slidesPerView: 1.2,      // mobile: satu kartu + peek
+    spaceBetween: 24,
+    breakpoints: {
+      640:  { slidesPerView: 2.2 },  // ≥sm
+      1024: { slidesPerView: 3.2 },  // ≥lg
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    keyboard: true,
+    grabCursor: true,
+    autoplay: {
+        delay:1000,       // 3 detik tiap slide
+      disableOnInteraction: false, // tetap lanjut setelah panah/drag
+      pauseOnMouseEnter: true,     // berhenti sementara saat hover
+    },
+    speed: 900,
+  });
+</script>
+
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+    delay:100,
+    easing: 'ease-in-out',
+    once: false,
+  });
+</script>
+
+<script>
+  const roles = ["Junior", "Web", "Python ", "Laravel", "AI Engineer"];
+  let currentRole = 0;
+  let currentChar = 0;
+  let isDeleting = false;
+
+  const target = document.getElementById("animated-text");
+
+  function typeEffect() {
+    const fullText = roles[currentRole];
+    const displayedText = fullText.substring(0, currentChar);
+
+    target.textContent = displayedText;
+
+    if (!isDeleting && currentChar < fullText.length) {
+      currentChar++;
+      setTimeout(typeEffect, 100);
+    } else if (isDeleting && currentChar > 0) {
+      currentChar--;
+      setTimeout(typeEffect, 50);
+    } else {
+      if (!isDeleting) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000); // delay sebelum hapus
+      } else {
+        isDeleting = false;
+        currentRole = (currentRole + 1) % roles.length;
+        setTimeout(typeEffect, 500); // delay sebelum ketik ulang
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
 </body>
-
 </html>
