@@ -114,9 +114,6 @@
                 
                 <div class="flex space-x-4">
                     <!---toggle dark mode ---->
-                   <button id="theme-toggle" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center transition-colors">
-                    <i id="theme-icon" class="fas fa-moon text-gray-600"></i>
-                    </button>
 
                     <a href="https://github.com/IHsanwar" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/ihsan-wardhana-r-6812492a2/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-linkedin"></i></a>
@@ -165,41 +162,52 @@
         
           </section>
     
-    <section id="about" class="py-20 bg-white dark:bg-gray-900 dark:text-gray-200">
-        <div class="container max-w-7xl mx-auto px-5" data-aos="fade-up">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-primary mb-4 inline-block relative">
-                    About Me
-                    <span class="absolute w-1/2 h-1 bg-accent bottom-0 left-1/4 -mb-2"></span>
-                </h2>
-                <p class="text-lg text-textColor opacity-80">
+    <section id="about" class="py-20 w-full bg-white dark:bg-gray-900 dark:text-gray-200">
+    <div class="container max-w-7xl mx-auto px-5" data-aos="fade-up">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-primary mb-4 inline-block relative">
+                About Me
+                <span class="absolute w-1/2 h-1 bg-accent bottom-0 left-1/4 -mb-2"></span>
+            </h2>
+            <p class="text-lg text-textColor opacity-80">
+                Below is a brief introduction about me, my skills, and my journey as a developer.
+            </p>
+        </div>
+        
+        <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl mx-auto">
+            <img 
+                src="assets/gwe.jpeg" 
+                alt="About Me" 
+                class="w-64 h-64 rounded-full shadow-lg object-cover transition-transform hover:-translate-y-2 shadow-lg hover:shadow-xl transform hover:scale-105 mb-8 md:mb-0"
+            >
+            
+            <div class="flex-1 border border-gray-200 p-8 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-accent mb-5">Hi, I'm Ihsan Wardhana R</h3>
+                <h3 class="text-xl font-bold mb-5 relative inline-block">
+                        <span class="absolute left-0 bottom-5 w-60 h-1 bg-primary -mb-2"></span>
+                    </h3><!-- Primary color line -->
+
+                <p class="mb-4 leading-relaxed">
+                    A passionate developer with strong interest in backend and API development, currently learning at <strong>SMK Plus Pelita Nusantara</strong>. I love solving problems with code and building applications that work efficiently and beautifully.
+                </p>
                 
+                <ul class="list-disc pl-5 mb-4 space-y-2 text-sm md:text-base">
+                    <li><i class="fas fa-code text-primary mr-2"></i><strong>Languages:</strong> Python, PHP, Laravel, JavaScript,</li>
+                    <li><i class="fas fa-rocket text-primary mr-2"></i><strong>Focus:</strong> API Development, Web App Backends, Full stack development</li>
+                    <li><i class="fas fa-laptop-code text-primary mr-2"></i><strong>Projects:</strong> Attendance Systems, AI Agent Asisstant, Cashier System</li>
+                    <li><i class="fas fa-user-graduate text-primary mr-2"></i><strong>Learning:</strong> Odoo Deployment, Websockets, RESTful & AI APIs</li>
+                </ul>
+
+                <p class="mb-4 leading-relaxed text-primary hover:text-black transition-colors">
+                     <i class="fa-solid fa-file p-2"></i> <a href="assets/CV Ihsan Wardhana R.pdf" target="_blank" class="font-semibold hover:underline">
+                        Check out my CV <i class="fas fa-external-link-alt ml-1"></i> 
+                    </a>
                 </p>
             </div>
-            
-            <div class="flex flex-col md:flex-row items-center gap-12 max-w-4xl mx-auto">
-                <img 
-                    src="assets/gwe.jpeg" 
-                    alt="About Me" 
-                    class="w-64 h-64 rounded-lg shadow-lg object-cover transition-transform hover:-translate-y-2 shadow-lg hover:shadow-xl transform hover:scale-105 mb-8 md:mb-0"
-                >
-                
-                <div class="flex-1 border border-gray-200 p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-bold text-primary mb-5">Hi, I'm Ihsan Wardhana R</h3>
-                    <p class="mb-4 leading-relaxed">
-                        I specialize in building application. With a strong foundation in python, laravel and API development. I create seamless digital experiences that engage users and drive results.
-                    </p>
-                    <p class="mb-4 leading-relaxed">
-                        My goal is to combine creativity with technology to deliver high-quality web solutions that meet the needs of my clients.
-                    </p>
-                    <p class="mb-4 leading-relaxed">
-                    <a href="assets/CV Ihsan Wardhana R.pdf" target="_blank" class="text-primary font-semibold hover:underline">
-                        Check Out My CV >></a>
-                    </p>
-                </div>
-            </div>
         </div>
-    </section>
+    </div>
+</section>
+
     
     <section id="services" class="py-20">
         <div class="container max-w-7xl mx-auto px-5">
@@ -268,7 +276,7 @@
 
                 <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-robot"></i> AI Tools</h3>
-                    <p>Experience in building AI-powered applications, including chatbots and intelligent assistants.</p>
+                    <p>Experience in building AI-powered applications, including chatbots and intelligent assistants using Open AI, Claude etc.</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
@@ -288,6 +296,16 @@
                 <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-git-alt"></i> Git</h3>
                     <p>Version control using github and gitlab for developing tools.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 flex gap-6"><img  src="assets/odoo-logo-brandlogos.net_cgz8t2n96.svg" width="80px" alt=""></h3>
+                    <p>Familiar on using Odoo for Software Development</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-bootstrap"></i> Bootstrap</h3>
+                    <p>Familiar on using Boostrap for website developments</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
@@ -646,7 +664,6 @@
   AOS.init({
     duration: 1000,
     once: true,
-    delay:100,
     easing: 'ease-in-out',
     once: false,
   });
