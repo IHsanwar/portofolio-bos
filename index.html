@@ -72,54 +72,29 @@
       });
     });
     </script>
-
-<style>
-    .blinking-cursor {
-    animation: blink 1s step-start infinite;
-  }
-
-  @keyframes blink {
-    50% {
-      opacity: 0;
-    }
-  }
-  /* Keyframes sliding */
-@keyframes slide-x {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* -50% karena kita duplikasi 2× */
-}
-
-/* Terapkan animasi ke trek */
-.slider-track {
-  animation: slide-x 25s linear infinite;
-}
- html {
-    scroll-behavior: smooth;
-  }
-.theme-toggle.dark .theme-toggle-slider {
-            transform: translateX(30px);
-            color: #fbbf24;
-        }
-</style>
-
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body class="bg-lightBg text-textColor font-montserrat transition-colors duration-300 dark:bg-black dark:text-gray-200">
     <header class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 dark:text-gray-200 shadow-md">
     
 
-        <div class="container max-w-7xl mx-auto px-5 fixed top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:text-gray-200"">
+        <div class="container max-w-7xl mx-auto px-5 fixed top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:text-gray-200">
             <nav class="flex justify-between items-center py-5">
                 <div class="text-3xl font-bold dark:text-white">
-                    Ihsan<span class="text-primary"> Wardhana R</span>
+                <a href="#" class="group relative inline-block px-1 text-black hover:text-primary transition-all duration-300">
+                    Ihsan <span class="text-primary">Wardhana </span>
+                    <span class="absolute left-0 bottom-0 h-[2px] bg-primary w-0 group-hover:w-full transition-all duration-300"></span>
+                  </a>
+
                 </div>
                 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="font-medium hover:text-primary transition-colors">Home</a>
-                    <a href="#about" class="font-medium hover:text-primary transition-colors">About</a>
-                    <a href="#services" class="font-medium hover:text-primary transition-colors">Skills</a>
-                    <a href="#projects" class="font-medium hover:text-primary transition-colors">Projects</a>
-                    <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
-                </div>
+                <nav class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link font-medium text-gray-700">Home</a>
+            <a href="#about" class="nav-link font-medium text-gray-700">About</a>
+            <a href="#services" class="nav-link font-medium text-gray-700">Skills</a>
+            <a href="#projects" class="nav-link font-medium text-gray-700">Projects</a>
+            <a href="#contact" class="nav-link font-medium text-gray-700">Contact</a>
+        </nav>
                 
                 <div class="flex space-x-4">
                     <!---toggle dark mode ---->
@@ -184,35 +159,80 @@
         </div>
         
         <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl mx-auto">
-            <img 
-                src="assets/gwe.jpeg" 
-                alt="About Me" 
-                class="w-64 h-64 rounded-full shadow-lg object-cover transition-transform hover:-translate-y-2 shadow-lg hover:shadow-xl transform hover:scale-105 mb-8 md:mb-0"
-            >
             
             <div class="flex-1 border border-gray-200 p-8 rounded-lg shadow-md">
-                <h3 class="text-2xl font-bold text-accent mb-5">Hi, I'm Ihsan Wardhana R</h3>
-                <h3 class="text-xl font-bold mb-5 relative inline-block">
-                        <span class="absolute left-0 bottom-5 w-60 h-1 bg-primary -mb-2"></span>
-                    </h3><!-- Primary color line -->
+                    <!-- Primary color line -->
 
-                <p class="mb-4 leading-relaxed">
-                    A passionate developer with strong interest in backend and API development, currently learning at <strong>SMK Plus Pelita Nusantara</strong>. I love solving problems with code and building applications that work efficiently and beautifully.
-                </p>
-                
-                <ul class="list-disc pl-5 mb-4 space-y-2 text-sm md:text-base">
-                    <li><i class="fas fa-code text-primary mr-2"></i><strong>Languages:</strong> Python, PHP, Laravel, JavaScript,</li>
-                    <li><i class="fas fa-rocket text-primary mr-2"></i><strong>Focus:</strong> API Development, Web App Backends, Full stack development</li>
-                    <li><i class="fas fa-laptop-code text-primary mr-2"></i><strong>Projects:</strong> Attendance Systems, AI Agent Asisstant, Cashier System</li>
-                    <li><i class="fas fa-user-graduate text-primary mr-2"></i><strong>Learning:</strong> Odoo Deployment, Websockets, RESTful & AI APIs</li>
-                </ul>
-
-                <p class="mb-4 leading-relaxed text-primary hover:text-black transition-colors">
-                     <i class="fa-solid fa-file p-2"></i> <a href="assets/CV Ihsan Wardhana R.pdf" target="_blank" class="font-semibold hover:underline">
-                        Check out my CV <i class="fas fa-external-link-alt ml-1"></i> 
-                    </a>
-                </p>
-            </div>
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                        <!-- Technical Skills -->
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 pl-5">
+                                <i class="fas fa-code text-primary mr-3"></i>Technical Skills
+                            </h4>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="skill-tag px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Python</span>
+                                <span class="skill-tag px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Laravel</span>
+                                <span class="skill-tag px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium">API Development</span>
+                                <span class="skill-tag px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium">Odoo Development</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Focus Areas -->
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 pl-5">
+                                <i class="fa-solid fa-bullseye text-accent mr-3"></i> Focus Areas
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-gray-600 dark:text-gray-300">
+                                    <i class="fas fa-chevron-right text-primary mr-3 text-sm"></i>
+                                    <span>Full Stack Development</span>
+                                </div>
+                                <div class="flex items-center text-gray-600 dark:text-gray-300">
+                                    <i class="fas fa-chevron-right text-primary mr-3 text-sm"></i>
+                                    <span>RESTful & AI APIs</span>
+                                </div>
+                                <div class="flex items-center text-gray-600 dark:text-gray-300">
+                                    <i class="fas fa-chevron-right text-primary mr-3 text-sm"></i>
+                                    <span>Web Application Backends</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projects & Learning -->
+                    <div class="grid md:grid-cols-2 gap-8 mb-10">
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
+                                <i class="fas fa-project-diagram text-primary mr-3"></i>Recent Projects
+                            </h4>
+                            <div class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <p>• Attendance Management Systems</p>
+                                <p>• AI Agent Assistant</p>
+                                <p>• Cashier System Solutions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-4">
+                                <i class="fas fa-graduation-cap text-accent mr-3"></i>Currently Learning
+                            </h4>
+                            <div class="space-y-2 text-gray-600 dark:text-gray-300">
+                                <p>• Odoo Deployment & Customization</p>
+                                <p>• WebSocket Technologies</p>
+                                <p>• Advanced API Architectures</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- CV Download -->
+                    <div class="text-center ">
+                        <a href="assets/CV Ihsan Wardhana R.pdf" target="_blank" 
+                           class="inline-flex items-center px-8 py-4 bg-accent text-white rounded-lg border-2 hover:bg-white hover:text-accent hover:border-primary font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+                            <i class="fas fa-file-download mr-3"></i>
+                            Download CV
+                            <i class="fas fa-external-link-alt ml-3 text-sm"></i>
+                        </a>
+                    </div>
 
             
 
@@ -247,7 +267,7 @@
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
                         <i class="fa-brands fa-python"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4"  >Python Development</h3>
+                    <h3 class="text-2xl font-bold mb-4" >Python Development</h3>
                     <p>Build application with python for AI Agent, API communication, Web development and full developed application</p>
                 </div>
 
@@ -262,72 +282,93 @@
         </div>
     </section>
 
-    <sevtion id="skills" class="py-20 bg-lightBg">
-        <div class="container max-w-7xl mx-auto px-5">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl font-bold mb-4" >Tech Stacks </h2>
-                <p class="text-lg text-gray-500">
-                    A list of my skills and technology i used in various projects and works.
-                </p>
+    <section id="skills" class="py-20 bg-lightBg">
+    <div class="container max-w-7xl mx-auto px-5">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Tech Stacks</h2>
+            <p class="text-lg text-gray-500">
+                A list of my skills and technology I used in various projects and works.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Skill cards (first 6 always shown) -->
+            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-python"></i> Python</h3>
+                <p>Experienced in building web and API-based applications using Python (Flask, FastAPI).</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-laravel"></i> Laravel</h3>
+                <p>Proficient in developing web applications using Laravel, focusing on clean code and best practices.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 flex gap-6">
+                        <img src="assets/odoo-logo-brandlogos.net_cgz8t2n96.svg" width="80px" alt="">
+                    </h3>
+                    <p>Familiar with Odoo ERP development and customization.</p>
+                </div>
+            
+            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-robot"></i> AI Tools</h3>
+                <p>Built AI-powered apps such as chatbots and assistants using OpenAI, Claude, etc.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up" >
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-python"></i> Python</h3>
-                    <p>Experienced in building applications using Python, including Flask and Django frameworks.</p>
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 flex">
+                        <img src="assets/img/opencv.svg" width="38px" alt=""><span class="mt-1"> OpenCV</span>
+                    </h3>
+                    <p>Familiar with using OpenCV2 for application development.</p>
+                </div>
+
+            
+            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-database"></i> Databases</h3>
+                <p>Experienced with relational databases like MySQL, PostgreSQL, and SQLite.</p>
+            </div>
+              </div>
+            <!-- Hidden skills -->
+            <div id="moreSkills" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-react"></i> React JS</h3>
+                    <p>Familiar with using React.js for building dynamic and responsive UIs.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-4 flex">
+                    <svg width="30px" xmlns="http://www.w3.org/2000/svg" class="mr-2" viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#000"/></svg>
+                        <path d="..." fill="#000" />
+                    </svg> Tailwind CSS
+                </h3>
+                <p>Skilled in designing and implementing designs using Tailwind CSS</p>
+            </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-git-alt"></i> Git</h3>
+                    <p>Proficient in using Git with GitHub/GitLab for version control and collaboration.</p>
                 </div>
                 
                 <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
-                    
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-laravel" ></i> Laravel</h3>
-                    <p>Proficient in developing web applications using Laravel, focusing on clean code and best practices.</p>
-                </div>
+                <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-figma"></i> Figma</h3>
+                <p>Familiar with Figma for designing and creating prototypes for application development.</p>
+            </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4 flex "><svg width="30px" xmlns="http://www.w3.org/2000/svg" class="mr-2" viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#000"/></svg> Tailwind CSS</h3>
-<p> Skilled in designing and implementing designs using Tailwind  CSS</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-robot"></i> AI Tools</h3>
-                    <p>Experience in building AI-powered applications, including chatbots and intelligent assistants using Open AI, Claude etc.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-figma"></i> Figma</h3>
-                    <p>Familiar with Figma for designing and creating prototype for application development.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-database"></i> Databases</h3>
-                    <p>I'm familiar with some database management system like MySQL, SQLite and Postgres SQL</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-react"></i> React JS </h3>
-                    <p>I'm familiar with react js usage for frontend development.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-git-alt"></i> Git</h3>
-                    <p>Version control using github and gitlab for developing tools.</p>
-                </div>
-            
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4 flex gap-6"><img  src="assets/odoo-logo-brandlogos.net_cgz8t2n96.svg" width="80px" alt=""></h3>
-                    <p>Familiar on using Odoo for Software Development</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-bootstrap"></i> Bootstrap</h3>
-                    <p>Familiar on using Boostrap for website developments</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-gear"></i> Other tools</h3>
-                    <p>Familiar on using other developing tools like Postman, Unit testing, Termius, Vercel and Laragon</p>
+                    <p>Experienced with tools like Postman, Unit testing, Termius, Vercel, and Laragon.</p>
                 </div>
             </div>
-        </div>  
-    </section>
+        </div>
+
+        <!-- Toggle Button -->
+        <div class="text-center mt-10">
+            <button id="toggleBtn" class="px-6 py-2 bg-primary text-white rounded-full hover:bg-accent transition-colors">
+              ▽ Show More
+            </button>
+        </div>
+    </div>
+</section>
+
+
     
     <section id="experience" class="py-20 bg-white">
         <div class="container max-w-7xl mx-auto px-5">
@@ -363,124 +404,123 @@
 
 
     <section id="projects" class="py-20">
-  <div class="container max-w-7xl mx-auto px-5">
+      <div class="container max-w-7xl mx-auto px-5">
 
-    <!-- Heading -->
-    <div class="text-center mb-16" data-aos="fade-up">
-      <h2 class="text-4xl font-bold mb-4">My Projects</h2>
-      <p class="text-lg text-gray-500">
-        A showcase of my work and projects that I have developed.
-      </p>
+      <!-- Heading -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl font-bold mb-4">My Projects</h2>
+        <p class="text-lg text-gray-500">
+          A showcase of my work and projects that I have developed.
+        </p>
+      </div>
+
+      <!-- === SWIPER WRAPPER === -->
+      <div class="swiper myProjects relative" data-aos="fade-up" data-aos-delay="100">
+
+        <!-- Panah navigasi -->
+        <button
+          class="swiper-button-prev !text-primary !w-10 !h-10 !-left-4 md:!-left-8 after:!text-3xl"
+          aria-label="Previous">
+        </button>
+        <button
+          class="swiper-button-next !text-primary !w-10 !h-10 !-right-4 md:!-right-8 after:!text-3xl"
+          aria-label="Next">
+        </button>
+
+        <!-- Container slide -->
+        <div class="swiper-wrapper" >
+
+          <!-- ==== SLIDE 1 ==== -->
+          <div class="swiper-slide flex justify-center">
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+              <img src="https://ihsanwd10.my.id/assets/img/portfolio/tickeasy.png" alt="TickEasy" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="text-xl font-bold mb-2">TickEasy</h3>
+                <p class="mb-4 text-gray-600">Ticketing application cashier registration with Laravel</p>
+                <div class="mt-auto">
+                  <a href="https://github.com/IHsanwar/tickeasy" target="_blank"
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    View Project
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==== SLIDE 2 ==== -->
+          <div class="swiper-slide flex justify-center">
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+              <img src="assets/cipherss.png" alt="Cipher" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="text-xl font-bold mb-2">Cipher – Event AI Agent Assistant</h3>
+                <p class="mb-4 text-gray-600">Event AI Assistant that serves for customer and visitor on "Pekan IT" Event held by SMK Plus Pelita Nusantara</p>
+                <div class="mt-auto flex flex-col gap-2">
+                  <a href="https://cipher-chat-f5h1.vercel.app/" target="_blank"
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    View Project <br>(AI Inactive)
+                  </a>
+                  <a href="https://github.com/IHsanwar/cipher-chat" target="_blank"
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    <i class="fa-brands fa-github"></i> Github
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==== SLIDE 3 ==== -->
+          <div class="swiper-slide flex justify-center">
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+              <img src="assets/faces-recog.png" alt="Face Recognition" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="text-xl font-bold mb-2">Face Recognition App</h3>
+                <p class="mb-4 text-gray-600">Attendance app utilizing OpenCV2 face‑recognition.</p>
+                <div class="mt-auto">
+                  <a href="https://github.com/IHsanwar/frecognition" target="_blank"
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    <i class="fa-brands fa-github"></i> Github
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==== SLIDE 4 ==== -->
+          <div class="swiper-slide flex justify-center">
+            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
+              <img src="assets/daycare.png" alt="Daycare" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col flex-1">
+                <h3 class="text-xl font-bold mb-2">Daycare Management System</h3>
+                <p class="mb-4 text-gray-600">System for PT Digital Forte</p>
+                <div class="mt-auto flex flex-col gap-2">
+                  <a href="https://dcare.ihsanwd10.my.id" target="_blank"
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    View Project
+                  </a>
+                  <a href="https://github.com/IHsanwar/be-daycare-dfi" target="_blank"
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    <i class="fa-brands fa-github"></i> Github
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- /swiper-wrapper -->
+
+        <!-- Bullet pagination (mobile) -->
+      </div> <!-- /swiper -->
     </div>
-
-    <!-- === SWIPER WRAPPER === -->
-    <div class="swiper myProjects relative" data-aos="fade-up" data-aos-delay="100">
-
-      <!-- Panah navigasi -->
-      <button
-        class="swiper-button-prev !text-primary !w-10 !h-10 !-left-4 md:!-left-8 after:!text-3xl"
-        aria-label="Previous">
-      </button>
-      <button
-        class="swiper-button-next !text-primary !w-10 !h-10 !-right-4 md:!-right-8 after:!text-3xl"
-        aria-label="Next">
-      </button>
-
-      <!-- Container slide -->
-      <div class="swiper-wrapper" >
-
-        <!-- ==== SLIDE 1 ==== -->
-        <div class="swiper-slide flex justify-center">
-          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-            <img src="https://ihsanwd10.my.id/assets/img/portfolio/tickeasy.png" alt="TickEasy" class="w-full h-48 object-cover">
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-xl font-bold mb-2">TickEasy</h3>
-              <p class="mb-4 text-gray-600">Ticketing application cashier registration with Laravel</p>
-              <div class="mt-auto">
-                <a href="https://github.com/IHsanwar/tickeasy" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  View Project
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==== SLIDE 2 ==== -->
-        <div class="swiper-slide flex justify-center">
-          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-            <img src="assets/cipherss.png" alt="Cipher" class="w-full h-48 object-cover">
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-xl font-bold mb-2">Cipher – Event AI Agent Assistant</h3>
-              <p class="mb-4 text-gray-600">Event AI Assistant that serves for customer and visitor on "Pekan IT" Event held by SMK Plus Pelita Nusantara</p>
-              <div class="mt-auto flex flex-col gap-2">
-                <a href="https://cipher-chat-f5h1.vercel.app/" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  View Project <br>(AI Inactive)
-                </a>
-                <a href="https://github.com/IHsanwar/cipher-chat" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  <i class="fa-brands fa-github"></i> Github
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==== SLIDE 3 ==== -->
-        <div class="swiper-slide flex justify-center">
-          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-            <img src="assets/faces-recog.png" alt="Face Recognition" class="w-full h-48 object-cover">
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-xl font-bold mb-2">Face Recognition App</h3>
-              <p class="mb-4 text-gray-600">Attendance app utilizing OpenCV2 face‑recognition.</p>
-              <div class="mt-auto">
-                <a href="https://github.com/IHsanwar/frecognition" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  <i class="fa-brands fa-github"></i> Github
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ==== SLIDE 4 ==== -->
-        <div class="swiper-slide flex justify-center">
-          <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-            <img src="assets/daycare.png" alt="Daycare" class="w-full h-48 object-cover">
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-xl font-bold mb-2">Daycare Management System</h3>
-              <p class="mb-4 text-gray-600">System for PT Digital Forte</p>
-              <div class="mt-auto flex flex-col gap-2">
-                <a href="https://dcare.ihsanwd10.my.id" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  View Project
-                </a>
-                <a href="https://github.com/IHsanwar/be-daycare-dfi" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  <i class="fa-brands fa-github"></i> Github
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div> <!-- /swiper-wrapper -->
-
-      <!-- Bullet pagination (mobile) -->
-      <div class="swiper-pagination !bottom-0 md:!hidden"></div>
-    </div> <!-- /swiper -->
+    <div class="text-center mt-10">
+    <!-- Button to view more projects -->
+    <a href="https://github.com/IHsanwar?tab=repositories" target="_blank"
+      class="inline-block mt-8 text-center px-5 py-2 hover:bg-primary hover:text-white text-center rounded-lg font-semibold transition-all bg-white text-primary border-2 border-primary">
+    <i class=" fa-brands fa-github"></i> View More Projects <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+    </div>
   </div>
-  <div class="text-center mt-10">
-  <!-- Button to view more projects -->
-  <a href="https://github.com/IHsanwar?tab=repositories" target="_blank"
-     class="inline-block mt-8 text-center px-5 py-2 hover:bg-primary hover:text-white text-center rounded-lg font-semibold transition-all bg-white text-primary border-2 border-primary">
-   <i class=" fa-brands fa-github"></i> View More Projects <i class="fas fa-arrow-right ml-2"></i>
-  </a>
-  </div>
-</div>
-</section>
-
+  </section>
+<!-- Certification Section 
   <section id="certification">
     <div class="container max-w-7xl mx-auto px-5 py-20">
         <div class="text-center mb-16" data-aos="fade-up">
@@ -527,7 +567,7 @@
                 </a>
             </div>
   </section>
-    
+    -->
     <section id="contact" class="py-20 mx-8 bg-white" data-aos="fade-down">
         <div class="container max-w-7xl mx-1 px-5">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -561,7 +601,7 @@
                     </div>
                 </div>
                 
-                <form>
+                <form action="mailto:ihsanwar77@gmail.com" method="post" enctype="text/plain" class="space-y-5">
                     <div class="mb-5">
                         <label for="name" class="block mb-2 font-medium">Name</label>
                         <input type="text" id="name" placeholder="Your name" class="w-full p-3 border border-gray-200 rounded-lg text-base">
@@ -644,6 +684,17 @@
     <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
 <script>
+
+    const toggleBtn = document.getElementById('toggleBtn');
+    const moreSkills = document.getElementById('moreSkills');
+
+    toggleBtn.addEventListener('click', () => {
+        moreSkills.classList.toggle('hidden');
+        toggleBtn.textContent = moreSkills.classList.contains('hidden') ? '▽ Show More' : '🢁 Show Less';
+    });
+
+
+
   new Swiper('.myProjects', {
     loop: true,
     slidesPerView: 1.2,      // mobile: satu kartu + peek
@@ -683,7 +734,7 @@
 </script>
 
 <script>
-  const roles = ["Junior", "Web", "Python ", "Laravel", "AI Engineer"];
+  const roles = ["Junior", "Web", "Python ", "Laravel", "Fullstack"];
   let currentRole = 0;
   let currentChar = 0;
   let isDeleting = false;
