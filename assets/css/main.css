@@ -65,6 +65,7 @@ html {
     height: 500px; /* Fixed height for all cards */
     transition: all 0.3s ease;
     margin-bottom: 10px;
+    overflow: visible;
 }
 
 .project-card:hover {
@@ -91,7 +92,6 @@ html {
 
 .project-description {
     height: 80px; /* Fixed description height */
-    overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
