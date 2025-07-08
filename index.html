@@ -23,7 +23,12 @@
   href="https://unpkg.com/swiper@11/swiper-bundle.min.css"
 />
     <!-- Google Fonts -->
+     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -39,6 +44,7 @@
         },
         fontFamily: {
           montserrat: ['Montserrat', 'sans-serif'],
+          vt323: ['Space Mono', 'monospace'],
         },
         keyframes: {
           float: {
@@ -116,7 +122,7 @@
                 
                 <h1 class="text-4xl md:text-5xl leading-tight font-bold mb-5">
                         My name is Ihsan! I'm<br>
-                        <span class="inline-block text-accent text-4xl bg-slate-200 dark:bg-slate-800 dark:text-primary" id="animated-text">Junior</span>
+                        <span class="font-vt323 inline-block text-accent text-4xl bg-slate-200 dark:bg-slate-800 dark:text-primary" id="animated-text">Backend</span>
                        
                         <span class="text-accent"><br> Developer.</span>
                         </h1>
@@ -441,7 +447,7 @@
         
 
 
-    <section id="projects" class="py-20">
+    <section id="projects" class="py-20" data-aos="fade-up">
       <div class="container max-w-7xl mx-auto px-5">
 
       <!-- Heading -->
@@ -490,8 +496,8 @@
             <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
               <img src="assets/cipherss.png" alt="Cipher" class="w-full h-48 object-cover">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">Cipher – Event AI Agent Assistant</h3>
-                <p class="mb-4 text-gray-600">Event AI Assistant that serves for customer and visitor on "Pekan IT" Event held by SMK Plus Pelita Nusantara</p>
+                <h3 class="text-xl font-bold mb-2">Cipher – Event AI Assistant</h3>
+                <p class="mb-4 text-gray-600">AI Automation Assistant that serves for customer and visitor on "Pekan IT" Event. with AI automation feature like displaying picture, and automatic send survey</p>
                 <div class="mt-auto flex flex-col gap-2">
                   <a href="https://cipher-chat-f5h1.vercel.app/" target="_blank"
                     class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
@@ -566,7 +572,7 @@
               <img src="assets/library.png" alt="Library Application" class="w-full h-48 object-cover">
               <div class="p-5 flex flex-col flex-1">
                 <h3 class="text-xl font-bold mb-2">Library Book Management Application</h3>
-                <p class="mb-4 text-gray-600">Attendance app utilizing OpenCV2 face‑recognition.</p>
+                <p class="mb-4 text-gray-600">Library datatabases application built with SQLite and Flask Python</p>
                 <div class="mt-auto">
                   <a href="https://github.com/IHsanwar/library-app" target="_blank"
                     class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
@@ -804,7 +810,7 @@
 </script>
 
 <script>
-  const roles = ["Junior", "Web", "Python ", "Laravel", "Fullstack"];
+  const roles = ["Backend", "Web", "Python ", "Laravel", "Fullstack"];
   let currentRole = 0;
   let currentChar = 0;
   let isDeleting = false;
