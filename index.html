@@ -30,141 +30,148 @@
     
     
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-    darkMode: 'class', // Aktifkan dark mode berbasis class
-    theme: {
-      extend: {
-        colors: {
-          primary: '#6366f1',
-          accent: '#4f46e5',
-          textColor: '#1e293b',
-          lightBg: '#f8fafc',
-        },
-        fontFamily: {
-          montserrat: ['Montserrat', 'sans-serif'],
-          vt323: ['Space Mono', 'monospace'],
-        },
-        keyframes: {
-          float: {
-            '0%, 100%': { transform: 'translateY(0px)' },
-            '50%': { transform: 'translateY(-20px)' },
-          }
-        },
-        animation: {
-          float: 'float 6s ease-in-out infinite',
-        }
-      }
-    }
-  
-        }
-        
+   <script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+theme: {
+  extend: {
+    colors: {
+      primary: '#6366f1',
+      accent: '#4f46e5',
+
+      // Text Colors (jangan pakai textColor, nanti konflik)
+      lightText: '#111111',          // Default teks di light mode
+      lightTextSecondary: '#374151', // Abu abu untuk secondary
+
+      darkText: '#FFFFFF',           // Pure white
+      darkTextSecondary: '#E5E5E5',
+      darkTextTertiary: '#B3B3B3',
+      darkTextMuted: '#808080',
+
+      // Background Dark Mode
+      darkBg: '#010101',
+      darkBgSecondary: '#0D0D0D',
+      darkBgTertiary: '#1A1A1A',
+      darkCard: '#0F0F0F',
+      darkCardHover: '#161616',
+      darkBorder: '#2A2A2A',
+      darkBorderLight: '#404040',
+
+      // Accent
+      darkAccent: '#8B5CF6',
+      darkAccentHover: '#A78BFA',
+      darkSuccess: '#10B981',
+      darkWarning: '#F59E0B',
+      darkError: '#EF4444',
+    },
+
+    backgroundImage: {
+      'gradient-dark': 'linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #1A1A1A 100%)',
+      'gradient-card': 'linear-gradient(145deg, #0F0F0F 0%, #1A1A1A 100%)',
+      'gradient-accent': 'linear-gradient(135deg, #6366f1 0%, #8B5CF6 100%)',
+    },
+  }
+}
+
+  }
+
+</script>
+
     
-
-  document.addEventListener('DOMContentLoaded', () => {
-      const themeToggle = document.getElementById('theme-toggle');
-      const themeIcon = document.getElementById('theme-icon');
-
-      const isDark = localStorage.getItem('dark-mode') === 'true';
-      if (isDark) {
-        document.body.classList.add('dark');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-      }
-
-      themeToggle.addEventListener('click', () => {
-        const isDark = document.body.classList.toggle('dark');
-        localStorage.setItem('dark-mode', isDark);
-        themeIcon.classList.toggle('fa-moon');
-        themeIcon.classList.toggle('fa-sun');
-      });
-    });
     </script>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="bg-lightBg text-textColor font-montserrat transition-colors duration-300 dark:bg-black dark:text-gray-200">
-    <header class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-gray-900 dark:text-gray-200 shadow-md">
-    
+<body class="bg-lightBg text-textColor font-montserrat transition-colors duration-300 dark:bg-gradient-dark dark:text-darkText">
+  <header class="fixed top-0 left-0 w-full z-50 bg-white dark:bg-darkCard dark:text-darkText shadow-md">
+    <div class="container max-w-7xl mx-auto px-5 fixed top-0 z-50 bg-secondary dark:bg-darkCard dark:text-darkText shadow-md">
+      <nav class="flex justify-between items-center py-5 bg-white dark:bg-darkCard dark:text-darkText">
+        <!-- Logo -->
+        <div class="text-3xl font-bold">
+          <a href="#" class="group relative inline-block px-1 text-gray-900 dark:text-darkText hover:text-primary transition-all duration-300">
+            Ihsan <span class="text-primary">Wardhana</span>
+            <span class="absolute left-0 bottom-0 h-[2px] bg-primary w-0 group-hover:w-full transition-all duration-300"></span>
+          </a>
+        </div>
 
-        <div class="container max-w-7xl mx-auto px-5 fixed top-0 z-50 bg-white shadow-md dark:bg-gray-900 dark:text-gray-200">
-            <nav class="flex justify-between items-center py-5">
-                <div class="text-3xl font-bold dark:text-white">
-                <a href="#" class="group relative inline-block px-1 text-black hover:text-primary transition-all duration-300">
-                    Ihsan <span class="text-primary">Wardhana </span>
-                    <span class="absolute left-0 bottom-0 h-[2px] bg-primary w-0 group-hover:w-full transition-all duration-300"></span>
-                  </a>
-
-                </div>
-                
-                <nav class="hidden md:flex space-x-8">
-            <a href="#home" class="nav-link font-medium text-gray-700">Home</a>
-            <a href="#about" class="nav-link font-medium text-gray-700">About</a>
-            <a href="#services" class="nav-link font-medium text-gray-700">Skills</a>
-            <a href="#projects" class="nav-link font-medium text-gray-700">Projects</a>
-            <a href="#contact" class="nav-link font-medium text-gray-700">Contact</a>
+        <!-- Navigation -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link font-medium text-gray-700 dark:text-gray-300">Home</a>
+          <a href="#about" class="nav-link font-medium text-gray-700 dark:text-gray-300">About</a>
+          <a href="#services" class="nav-link font-medium text-gray-700 dark:text-gray-300">Skills</a>
+          <a href="#projects" class="nav-link font-medium text-gray-700 dark:text-gray-300">Projects</a>
+          <a href="#contact" class="nav-link font-medium text-gray-700 dark:text-gray-300">Contact</a>
         </nav>
-                
-                <div class="flex space-x-4">
-                    <a href="https://github.com/IHsanwar" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/ihsan-wardhana-r-6812492a2/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/ihwr08/" target="_blank" class="text-xl hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
-                </div>
-            </nav>
-        </div>
-    </header>
-    
-    <section id="home" class="relative overflow-hidden my-12 px-5 min-h-[80vh] flex items-center dark:bg-gray-900 dark:text-gray-200"">
-        <div class="container max-w-7xl mx-8 flex flex-col md:flex-row items-center justify-between">
-            <div class="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
-                <div data-aos="fade-up" class="inline-block px-4 py-2 rounded-full bg-primary bg-opacity-10 text-primary font-semibold mb-5">
-                    <i class="fas fa-bolt mr-2"></i> Hello!
-                </div>
-                
-                <h1 class="text-4xl md:text-5xl leading-tight font-bold mb-5">
-                        My name is Ihsan! I'm<br>
-                        <span class="font-vt323 inline-block text-accent text-4xl bg-slate-200 dark:bg-slate-800 dark:text-primary" id="animated-text">Backend</span>
-                       
-                        <span class="text-accent"><br> Developer.</span>
-                        </h1>
 
-                
-                <p class="text-xl text-gray-500 mb-8 max-w-lg dark:text-gray-300">
-                    I am Ihsan Wardhana Ristiarto, a passionate web developer specializing in creating beautiful and functional web applications. 
-                    With expertise in Python, Laravel, and API development, I strive to deliver high-quality digital solutions.
-                </p>
-                
-                <div class="flex space-x-5 mt-8">
-                    <a href="#projects" class="px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:border-2 hover:border-primary hover:text-primary hover:-translate-y-1">
-                       View Projects   <i class="fas fa-arrow-right ml-2"></i> 
-                    </a>
-                    <a href="#contact" class="px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold transition-all hover:bg-primary hover:text-white hover:-translate-y-1">
-                         Contact Me <i class="fas fa-phone ml-2"></i>
-                    </a>
-                </div>
-            </div>
+        <!-- Buttons -->
+        <div class="flex space-x-4">
+          <!-- Tombol Dark Mode -->
+<!-- Tombol Dark Mode -->
+          <button id="toggleDark" 
+            class="relative w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 text-yellow-500 dark:text-gray-100 transition-all duration-500">
             
-            <div class="relative w-full md:w-2/5 flex justify-center" data-aos="fade-left">
-                <img src="assets/undraw_source-code_m0vh.png" alt="Hero Image" class="w-full max-w-md rounded-lg shadow-lg transform transition-transform hover:scale-105">
-                <div class="absolute bottom-1/10 right-1/10 w-12 h-12 bg-primary bg-opacity-10 rounded-full"></div>
-                <div class="absolute top-1/5 right-1/5 w-8 h-8 bg-primary bg-opacity-10 rounded-full"></div>
-            </div>
+            <!-- Icon Sun -->
+            <i id="iconSun" class="fa-solid fa-sun absolute opacity-100 scale-100 transition-all duration-500 text-yellow-500"></i>
+            
+            <!-- Icon Moon -->
+            <i id="iconMoon" class="fa-solid fa-moon absolute opacity-0 scale-50 transition-all duration-500 text-indigo-300"></i>
+          </button>
+
+
+          <a href="https://github.com/IHsanwar" target="_blank" class="text-xl text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/ihsan-wardhana-r-6812492a2/" target="_blank" class="text-xl text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/ihwr08/" target="_blank" class="text-xl text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"><i class="fab fa-instagram"></i></a>
         </div>
-        
-          </section>
-    
-    <section id="about" class="py-20 w-full bg-white dark:bg-gray-900 dark:text-gray-200">
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden my-12 px-5 min-h-[80vh] flex items-center bg-lightBg dark:bg-darkBg">
+    <div class="container max-w-7xl mx-8 flex flex-col md:flex-row items-center justify-between">
+      <div class="max-w-xl mb-10 md:mb-0" data-aos="fade-right">
+        <div data-aos="fade-up" class="inline-block px-4 py-2 rounded-full bg-primary bg-opacity-10 text-primary font-semibold mb-5">
+          <i class="fas fa-bolt mr-2"></i> Hello!
+        </div>
+
+        <h1 class="text-4xl md:text-5xl leading-tight font-bold mb-5 text-gray-900 dark:text-white">
+          My name is Ihsan! I'm<br>
+          <span class="font-vt323 inline-block text-accent text-4xl bg-slate-200 dark:bg-slate-800 dark:text-primary" id="animated-text">Backend</span>
+          <span class="text-accent"><br> Developer.</span>
+        </h1>
+
+        <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+          I am Ihsan Wardhana Ristiarto, a passionate web developer specializing in creating beautiful and functional web applications. 
+          With expertise in Python, Laravel, and API development, I strive to deliver high-quality digital solutions.
+        </p>
+
+        <div class="flex space-x-5 mt-8">
+          <a href="#projects" class="px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:border-2 hover:border-primary hover:text-primary hover:-translate-y-1">
+            View Projects <i class="fas fa-arrow-right ml-2"></i> 
+          </a>
+          <a href="#contact" class="px-6 py-3 border-2 border-primary text-primary rounded-lg font-semibold transition-all hover:bg-primary hover:text-white hover:-translate-y-1">
+            Contact Me <i class="fas fa-phone ml-2"></i>
+          </a>
+        </div>
+      </div>
+      <div class="relative w-full md:w-2/5 flex justify-center" data-aos="fade-left"> <img src="assets/undraw_source-code_m0vh.png" alt="Hero Image" class="w-full max-w-md rounded-lg shadow-lg transform transition-transform hover:scale-105"> <div class="absolute bottom-1/10 right-1/10 w-12 h-12 bg-primary bg-opacity-10 rounded-full"></div> <div class="absolute top-1/5 right-1/5 w-8 h-8 bg-primary bg-opacity-10 rounded-full"></div> </div> </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 w-full bg-white dark:bg-darkCard dark:text-darkText">
     <div class="container max-w-7xl mx-auto px-5" data-aos="fade-up">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4 inline-block relative">
-                About Me
-                <span class="absolute w-1/2 h-1 bg-accent bottom-0 left-1/4 -mb-2"></span>
-            </h2>
-            <p class="text-lg text-textColor opacity-80">
-                Below is a brief introduction about me, my skills, and my journey as a developer.
-            </p>
-        </div>
-        
-        <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4 inline-block relative text-gray-900 dark:text-white">
+          About Me
+          <span class="absolute w-1/2 h-1 bg-accent bottom-0 left-1/4 -mb-2"></span>
+        </h2>
+        <p class="text-lg text-gray-700 dark:text-gray-300 opacity-80">
+          Below is a brief introduction about me, my skills, and my journey as a developer.
+        </p>
+      </div>
+    </div>
+     <div class="flex flex-col md:flex-row items-center gap-10 max-w-4xl mx-auto">
             
             <div class="flex-1 border border-gray-200 p-8 rounded-lg shadow-md">
                     <!-- Primary color line -->
@@ -179,7 +186,6 @@
                                 <span class="skill-tag px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Python</span>
                                 <span class="skill-tag px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Laravel</span>
                                 <span class="skill-tag px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium">API Development</span>
-                                <span class="skill-tag px-4 py-2 bg-accent/10 text-accent rounded-full text-sm font-medium">Odoo Development</span>
                             </div>
                         </div>
                         
@@ -233,20 +239,13 @@
                     <!-- CV Download -->
                     <div class="text-center ">
                         <a href="assets/CV Ihsan Wardhana R.pdf" target="_blank" 
-                           class="inline-flex items-center px-8 py-4 bg-accent text-white rounded-lg border-2 hover:bg-white hover:text-accent hover:border-primary font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+                           class="inline-flex items-center px-8 py-4 bg-accent text-white rounded-lg border-1 hover:bg-white hover:text-accent hover:border-primary font-medium hover:shadow-lg hover:scale-105 transition-all duration-300 dark:hover:bg-darkAccent dark:dark:hover:text-white">
                             <i class="fas fa-file-download mr-3"></i>
                             Download CV
                             <i class="fas fa-external-link-alt ml-3 text-sm"></i>
                         </a>
                     </div>
-
-            
-
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-
-        </div>
-    </div>
-</section>
+  </section>
 
     
     <section id="services" class="py-20">
@@ -265,7 +264,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                
                 
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1 " data-aos="fade-up" data-aos-delay="100">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
                         <i class="fas fa-gear"></i>
                     </div>
@@ -273,7 +272,7 @@
                     <p>Designing beautiful and intuitive interfaces that enhance user experience and engagement.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up" data-aos-delay="300">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1"data-aos="fade-up" data-aos-delay="300">
                     <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
                         <i class="fa-brands fa-python"></i>
                     </div>
@@ -281,7 +280,7 @@
                 <p>Build application with python for AI Agent, API communication, Web development and full developed application</p>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500" >
+            <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="500" >
                 <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary bg-opacity-10 text-primary text-2xl mb-5">
                     <i class="fa-brands fa-laravel"></i>
                 </div>
@@ -306,27 +305,27 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Skill cards (first 6 always shown) -->
-            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+            <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                 <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-python"></i> Python</h3>
                 <p>Experienced in building web and API-based applications using Python (Flask, FastAPI).</p>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+            <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                 <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-laravel"></i> Laravel</h3>
                 <p>Proficient in developing web applications using Laravel, focusing on clean code and best practices.</p>
             </div>
-            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+            <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4 flex gap-6">
                         <img src="assets/odoo-logo-brandlogos.net_cgz8t2n96.svg" width="80px" alt="">
                     </h3>
                     <p>Familiar with Odoo ERP development and customization.</p>
                 </div>
             
-            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+            <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                 <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-robot"></i> AI Tools</h3>
                 <p>Built AI-powered apps such as chatbots and assistants using OpenAI, Claude, etc.</p>
             </div>
             
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4 flex">
                         <img src="assets/img/opencv.svg" width="38px" alt=""><span class="mt-1"> OpenCV</span>
                     </h3>
@@ -334,19 +333,19 @@
                 </div>
 
             
-            <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+            <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                 <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-database"></i> Databases</h3>
                 <p>Experienced with relational databases like MySQL, PostgreSQL, and SQLite.</p>
             </div>
               </div>
             <!-- Hidden skills -->
             <div id="moreSkills" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-react"></i> React JS</h3>
                     <p>Familiar with using React.js for building dynamic and responsive UIs.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                 <h3 class="text-xl font-bold mb-4 flex">
                     <svg width="30px" xmlns="http://www.w3.org/2000/svg" class="mr-2" viewBox="0 0 128 128"><path d="M64.004 25.602c-17.067 0-27.73 8.53-32 25.597 6.398-8.531 13.867-11.73 22.398-9.597 4.871 1.214 8.352 4.746 12.207 8.66C72.883 56.629 80.145 64 96.004 64c17.066 0 27.73-8.531 32-25.602-6.399 8.536-13.867 11.735-22.399 9.602-4.87-1.215-8.347-4.746-12.207-8.66-6.27-6.367-13.53-13.738-29.394-13.738zM32.004 64c-17.066 0-27.73 8.531-32 25.602C6.402 81.066 13.87 77.867 22.402 80c4.871 1.215 8.352 4.746 12.207 8.66 6.274 6.367 13.536 13.738 29.395 13.738 17.066 0 27.73-8.53 32-25.597-6.399 8.531-13.867 11.73-22.399 9.597-4.87-1.214-8.347-4.746-12.207-8.66C55.128 71.371 47.868 64 32.004 64zm0 0" fill="#000"/></svg>
                         <path d="..." fill="#000" />
@@ -355,17 +354,17 @@
                 <p>Skilled in designing and implementing designs using Tailwind CSS</p>
             </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-git-alt"></i> Git</h3>
                     <p>Proficient in using Git with GitHub/GitLab for version control and collaboration.</p>
                 </div>
                 
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                 <h3 class="text-xl font-bold mb-4"><i class="fa-brands fa-figma"></i> Figma</h3>
                 <p>Familiar with Figma for designing and creating prototypes for application development.</p>
             </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
+                <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
                     <h3 class="text-xl font-bold mb-4"><i class="fa-solid fa-gear"></i> Other tools</h3>
                     <p>Experienced with tools like Postman, Unit testing, SSH server, Vercel, and Laragon.</p>
                 </div>
@@ -382,11 +381,11 @@
 </section>
 
 
-    
-    <section id="experience" class="py-20 bg-white" data-aos="fade-up">
+
+    <section id="experience" class="py-20 bg-white dark:bg-gray-900" data-aos="fade-up">
         <div class="container max-w-7xl mx-auto px-5">
             <div class="text-center mb-16" data-aos="fade-bottom">
-                <h2 class="text-4xl font-bold mb-4">Experiences</h2>
+                <h2 class="text-4xl font-bold mb-4 dark:text-white">Experiences</h2>
                 <p class="text-lg text-gray-500">
                     A brief overview of my professional journey and skills.
                 </p>
@@ -394,7 +393,7 @@
             
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Smart Sintesa -->
-      <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
+      <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1 " data-aos="fade-up" data-aos-delay="0">
           <h5 class="text-lg font-light mb-2">June 2024 - August 2024</h5>
           <h3 class="text-xl font-bold mb-4">Intern Python API Developer
               <span class="text-sm font-semibold text-gray-500"><br>PT Smart Sintesa</span>
@@ -409,7 +408,7 @@
       </div>
 
       <!-- PT Digital Forte -->
-      <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+      <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
           <h5 class="text-lg font-light mb-2">February 2025 - August 2025</h5>
           <h3 class="text-xl font-bold mb-4">Intern Fullstack Developer <br>
               <span class="text-sm font-semibold text-gray-500">PT Digital Forte</span>
@@ -425,7 +424,7 @@
       </div>
 
       <!-- Cipher Event -->
-      <div class="bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
+      <div class="bg-white dark:bg-darkCard dark:text-darkText p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="400">
           <h5 class="text-lg font-light mb-2">July 2025</h5>
           <h3 class="text-xl font-bold mb-4">Leader & Backend Developer<br>
               <span class="italic text-orange-400">"Cipher" AI Assistant for Pekan IT Event</span><br>
@@ -447,7 +446,7 @@
         
 
 
-    <section id="projects" class="py-20" data-aos="fade-up">
+    <section id="projects" class="py-20 bg-white dark:bg-darkCard" data-aos="fade-up">
       <div class="container max-w-7xl mx-auto px-5">
 
       <!-- Heading -->
@@ -476,14 +475,14 @@
 
           <!-- ==== SLIDE 1 ==== -->
           <div class="swiper-slide flex justify-center">
-            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-              <img src="https://ihsanwd10.my.id/assets/img/portfolio/tickeasy.png" alt="TickEasy" class="w-full h-48 object-cover">
+            <div class="project-card bg-white dark:bg-darkCard dark:text-darkText rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80 border border-gray-100 dark:border-darkBorder dark:hover:bg-darkCardHover">
+              <img src="https://ihsanwd10.my.id/assets/img/portfolio/tickeasy.png" alt="TickEasy" class="w-full h-48 object-cover bg-gray-100 dark:bg-darkBg">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">TickEasy</h3>
-                <p class="mb-4 text-gray-600">Ticket transaction management built with Laravel</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-darkText">TickEasy</h3>
+                <p class="mb-4 text-gray-600 dark:text-darkTextSecondary">Ticket transaction management built with Laravel</p>
                 <div class="mt-auto">
                   <a href="https://github.com/IHsanwar/tickeasy" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     View Project
                   </a>
                 </div>
@@ -493,18 +492,18 @@
 
           <!-- ==== SLIDE 2 ==== -->
           <div class="swiper-slide flex justify-center">
-            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-              <img src="assets/cipherss.png" alt="Cipher" class="w-full h-48 object-cover">
+            <div class="project-card bg-white dark:bg-darkCard dark:text-darkText rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80 border border-gray-100 dark:border-darkBorder dark:hover:bg-darkCardHover">
+              <img src="assets/cipherss.png" alt="Cipher" class="w-full h-48 object-cover bg-gray-100 dark:bg-darkBg">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">Cipher – AI Assistant</h3>
-                <p class="mb-4 text-gray-600">AI Automation Assistant that serves for visitor on "Pekan IT" Event. with AI automation feature like displaying picture, and automatic send survey</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-darkText">Cipher – AI Assistant</h3>
+                <p class="mb-4 text-gray-600 dark:text-darkTextSecondary">AI Automation Assistant that serves for visitor on "Pekan IT" Event. with AI automation feature like displaying picture, and automatic send survey</p>
                 <div class="mt-auto flex flex-col gap-2">
                   <a href="https://ciphera.my.id/demo" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     View Demo 
                   </a>
                   <a href="https://ciphera.my.id/" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     View Project <br>(AI Inactive)
                   </a>
                 </div>
@@ -514,14 +513,14 @@
 
           <!-- ==== SLIDE 3 ==== -->
           <div class="swiper-slide flex justify-center">
-            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-              <img src="assets/cucimobil.png" alt="Cuci Mobil" class="w-full h-48 object-cover">
+            <div class="project-card bg-white dark:bg-darkCard dark:text-darkText rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80 border border-gray-100 dark:border-darkBorder dark:hover:bg-darkCardHover">
+              <img src="assets/cucimobil.png" alt="Cuci Mobil" class="w-full h-48 object-cover bg-gray-100 dark:bg-darkBg">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">Cuci Mobil Transaction Management</h3>
-                <p class="mb-4 text-gray-600">Point of sales app to manage Carwash Business, developed with Flask Python and SQLite</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-darkText">Cuci Mobil Transaction Management</h3>
+                <p class="mb-4 text-gray-600 dark:text-darkTextSecondary">Point of sales app to manage Carwash Business, developed with Flask Python and SQLite</p>
                 <div class="mt-auto">
                   <a href="https://github.com/IHsanwar/CuciMobil" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     <i class="fa-brands fa-github"></i> Github
                   </a>
                 </div>
@@ -531,14 +530,14 @@
 
           <!-- ==== SLIDE 4 ==== -->
           <div class="swiper-slide flex justify-center">
-            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-              <img src="assets/faces-recog.png" alt="Face Recognition" class="w-full h-48 object-cover">
+            <div class="project-card bg-white dark:bg-darkCard dark:text-darkText rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80 border border-gray-100 dark:border-darkBorder dark:hover:bg-darkCardHover">
+              <img src="assets/faces-recog.png" alt="Face Recognition" class="w-full h-48 object-cover bg-gray-100 dark:bg-darkBg">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">Attendance Application with Face Recognition</h3>
-                <p class="mb-4 text-gray-600">Attendance app utilizing OpenCV2 face‑recognition.</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-darkText">Attendance Application with Face Recognition</h3>
+                <p class="mb-4 text-gray-600 dark:text-darkTextSecondary">Attendance app utilizing OpenCV2 face‑recognition.</p>
                 <div class="mt-auto">
                   <a href="https://github.com/IHsanwar/frecognition" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     <i class="fa-brands fa-github"></i> Github
                   </a>
                 </div>
@@ -550,19 +549,19 @@
 
           <!-- ==== SLIDE 5 ==== -->
           <div class="swiper-slide flex justify-center">
-            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-              <img src="assets/daycare.png" alt="Daycare" class="w-full h-48 object-cover">
+            <div class="project-card bg-white dark:bg-darkCard dark:text-darkText rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80 border border-gray-100 dark:border-darkBorder dark:hover:bg-darkCardHover">
+              <img src="assets/daycare.png" alt="Daycare" class="w-full h-48 object-cover bg-gray-100 dark:bg-darkBg">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">Daycare Management System</h3>
-                <p class="mb-1 text-gray-600">Daycare management application used for PT Digital Forte</p>
-                <p class="mb-4 text-gray-600"><i>Login information:<br>email: cipher@gmail.com<br>password: cipher</i></p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-darkText">Daycare Management System</h3>
+                <p class="mb-1 text-gray-600 dark:text-darkTextSecondary">Daycare management application used for PT Digital Forte</p>
+                <p class="mb-4 text-gray-600 dark:text-darkTextSecondary"><i>Login information:<br>email: cipher@gmail.com<br>password: cipher</i></p>
                 <div class="mt-auto flex flex-col gap-2">
                   <a href="https://dcare.ihsanwd10.my.id" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     View Project
                   </a>
                   <a href="https://github.com/IHsanwar/be-daycare-dfi" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     <i class="fa-brands fa-github"></i> Github
                   </a>
                 </div>
@@ -572,14 +571,14 @@
 
           <!-- ==== SLIDE 6 ==== -->
           <div class="swiper-slide flex justify-center">
-            <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80">
-              <img src="assets/library.png" alt="Library Application" class="w-full h-48 object-cover">
+            <div class="project-card bg-white dark:bg-darkCard dark:text-darkText rounded-xl shadow-md overflow-hidden transition-transform hover:-translate-y-1 flex flex-col w-80 border border-gray-100 dark:border-darkBorder dark:hover:bg-darkCardHover">
+              <img src="assets/library.png" alt="Library Application" class="w-full h-48 object-cover bg-gray-100 dark:bg-darkBg">
               <div class="p-5 flex flex-col flex-1">
-                <h3 class="text-xl font-bold mb-2">Library Book Management Application</h3>
-                <p class="mb-4 text-gray-600">Library datatabases application built with SQLite and Flask Python</p>
+                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-darkText">Library Book Management Application</h3>
+                <p class="mb-4 text-gray-600 dark:text-darkTextSecondary">Library datatabases application built with SQLite and Flask Python</p>
                 <div class="mt-auto">
                   <a href="https://github.com/IHsanwar/library-app" target="_blank"
-                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
+                    class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary dark:hover:bg-darkAccent dark:hover:text-white dark:hover:border-darkAccent">
                     <i class="fa-brands fa-github"></i> Github
                   </a>
                 </div>
@@ -594,61 +593,13 @@
     </div>
     <div class="text-center mt-10">
     <a href="https://github.com/IHsanwar?tab=repositories" target="_blank" 
-      class="inline-block mt-8 text-center px-5 py-2 hover:bg-primary hover:text-white text-center rounded-lg font-semibold transition-all bg-white text-primary border-2 border-primary">
+      class="inline-block mt-8 text-center px-5 py-2 hover:bg-primary hover:text-white text-center rounded-lg font-semibold transition-all bg-white text-primary border-2 border-primary dark:bg-darkCard dark:text-darkText dark:border-darkBorder hover:shadow-lg hover:scale-105 duration-300  ">
     <i class=" fa-brands fa-github"></i> View More Projects <i class="fas fa-arrow-right ml-2"></i>
     </a>
     </div>
   </div>
   </section>
-<!-- Certification Section 
-  <section id="certification">
-    <div class="container max-w-7xl mx-auto px-5 py-20">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-4">Courses, Certification and Events </h2>
-            <p class="text-lg text-gray-500">
-                A showcase of my certifications and achievements.
-            </p>
-        </div>
-        
-        <div class="flex flex-wrap justify-center gap-8">
-            <div class="w-80 bg-white p-8 rounded-xl shadow-md transitgrid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center flexion-transform hover:-translate-y-1" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-2">Udemy - Pengenalan Pemrograman untuk Pemula</h3>
-                <img src="assets/udemy.png" alt="Udemy Course" class="w-full object-fit mb-4 rounded-lg shadow-md">
-                <p class="mb-4 text-gray-600">Udemy · 2021</p>
-                <a href="https://www.udemy.com/certificate/UC-f2f6d0d5-120f-4556-8f2d-d7739d7337d4/" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  View Certificate
-                </a>
-            </div>
-
-            <div class=" w-80 bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-xl font-bold mb-2">Google Devfest Bogor Web Technology</h3>
-                <img src="assets/GDG2024.png" alt="" class="w-full object-fit mb-4 rounded-lg shadow-md">
-                <p class="mb-4 text-gray-600">Google Developer · 2024</p>
-                <button disabled class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary opacity-80 cursor-not-allowed">Certificate Unavailable</button>
-              
-            </div>
-
-            <div class="w-80 bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-xl font-bold mb-2">Hackerrank - Python(basic)</h3>
-                <img src="assets/hackerrank-python.png" alt="" class="w-full object-fit mb-4 rounded-lg shadow-md">
-                <p class="mb-4 text-gray-600">Hackerrank · 2024</p>
-                <a href="https://www.hackerrank.com/certificates/0ce688bdc8b2" target="_blank" class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  View Certificate </a>
-                  </div>
-
-              <div class="w-80 bg-white p-8 rounded-xl shadow-md transition-transform hover:-translate-y-1" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-2">Pekan IT - SMK Plus Pelita Nusantara</h3>
-                <img src="assets/img/pekan-it.png" alt="Udemy Course" class="w-full object-fit mb-4 rounded-lg shadow-md">
-                <p class="mb-4 text-gray-600">SMK Plus Pelita Nusantara · 2024 - 2025</p>
-                <a href="https://www.instagram.com/reel/DLcVhnGSwnU/?igsh=MWVuNnFrczR6c3IzOA==" target="_blank"
-                   class="inline-block w-full text-center px-5 py-2 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-white hover:text-primary hover:border-2 hover:border-primary">
-                  View Details
-                </a>
-            </div>
-  </section>
-    -->
-    <section id="contact" class="py-20 mx-8 bg-white" data-aos="fade-down">
+    <section id="contact" class="py-20 mx-8 bg-white dark:bg-darkCard dark:text-darkText" data-aos="fade-down">
         <div class="container max-w-7xl mx-1 px-5">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -684,20 +635,20 @@
                 <form action="mailto:ihsanwar77@gmail.com" method="post" enctype="text/plain" class="space-y-5">
                     <div class="mb-5">
                         <label for="name" class="block mb-2 font-medium">Name</label>
-                        <input type="text" id="name" placeholder="Your name" class="w-full p-3 border border-gray-200 rounded-lg text-base">
+                        <input type="text" id="name" placeholder="Your name" class="w-full p-3 border border-gray-200 dark:border-darkBorder rounded-lg text-base dark:bg-darkBg dark:text-darkText">
                     </div>
                     
                     <div class="mb-5">
                         <label for="email" class="block mb-2 font-medium">Email</label>
-                        <input type="email" id="email" placeholder="Your email" class="w-full p-3 border border-gray-200 rounded-lg text-base">
+                        <input type="email" id="email" placeholder="Your email" class="w-full p-3 border border-gray-200 dark:border-darkBorder rounded-lg text-base dark:bg-darkBg dark:text-darkText">
                     </div>
                     
                     <div class="mb-5">
                         <label for="message" class="block mb-2 font-medium">Message</label>
-                        <textarea id="message" placeholder="Your message" class="w-full p-3 border border-gray-200 rounded-lg text-base h-36 resize-y"></textarea>
+                        <textarea id="message" placeholder="Your message" class="w-full p-3 border border-gray-200 dark:border-darkBorder rounded-lg text-base h-36 resize-y dark:bg-darkBg dark:text-darkText"></textarea>
                     </div>
                     
-                    <button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg font-semibold transition-all hover:bg-accent">
+                    <button type="submit" class="px-6 py-3 bg-primary dark:bg-darkAccent text-white rounded-lg font-semibold transition-all hover:bg-accent dark:hover:bg-darkAccentHover">
                         Send Message <i class="fas fa-paper-plane ml-2"></i>
                     </button>
                 </form>
@@ -705,7 +656,7 @@
         </div>
     </section>
     
-    <footer class="bg-gray-800 text-white pt-12 pb-5 ">
+    <footer class="bg-gray-800 dark:bg-darkBg text-white pt-12 pb-5 ">
         <div class="container max-w-7xl mx-auto px-5">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                 <div>
@@ -755,7 +706,7 @@
                 </div>
             </div>
             
-            <div class="text-center text-gray-300 text-sm pt-5 border-t border-gray-700">
+            <div class="text-center text-gray-300 dark:text-darkTextSecondary text-sm pt-5 border-t border-gray-700 dark:border-darkBorder">
                 <p>&copy; 2025 Ihsan Wardhana R. All rights reserved.</p>
             </div>
         </div>
@@ -813,7 +764,50 @@
   });
 </script>
 
-<script>
+<script>const toggle = document.getElementById('toggleDark');
+const html = document.documentElement;
+const iconSun = document.getElementById('iconSun');
+const iconMoon = document.getElementById('iconMoon');
+
+// Set tema awal dari localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  html.classList.add('dark');
+  iconSun.classList.replace("opacity-100", "opacity-0");
+  iconSun.classList.replace("scale-100", "scale-50");
+  iconMoon.classList.replace("opacity-0", "opacity-100");
+  iconMoon.classList.replace("scale-50", "scale-100");
+}
+
+toggle.addEventListener('click', () => {
+  if (html.classList.contains('dark')) {
+    // Ke Light Mode
+    html.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+    
+    iconSun.classList.replace("opacity-0", "opacity-100");
+    iconSun.classList.replace("scale-50", "scale-100");
+    iconMoon.classList.replace("opacity-100", "opacity-0");
+    iconMoon.classList.replace("scale-100", "scale-50");
+  } else {
+    // Ke Dark Mode
+    html.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    
+    iconMoon.classList.replace("opacity-0", "opacity-100");
+    iconMoon.classList.replace("scale-50", "scale-100");
+    iconSun.classList.replace("opacity-100", "opacity-0");
+    iconSun.classList.replace("scale-100", "scale-50");
+  }
+});
+
+
+
+    // Load preferensi sebelumnya
+    if (localStorage.getItem('theme') === 'dark') {
+      html.classList.add('dark');
+    }
+
+
   const roles = ["Backend", "Web", "Python ", "Laravel", "Fullstack"];
   let currentRole = 0;
   let currentChar = 0;
