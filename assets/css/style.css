@@ -1,0 +1,411 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    /* ===== BUTTONS ===== */
+    .btn-primary {
+        @apply inline-block px-8 py-3 bg-black text-white dark:bg-white dark:text-black font-bold uppercase tracking-wider hover:bg-transparent hover:text-black dark:hover:text-white transition-all duration-300 rounded-none border-2 border-black dark:border-white text-xs md:text-sm;
+    }
+
+    .btn-outline {
+        @apply inline-block px-8 py-3 border-2 border-black dark:border-white font-bold uppercase tracking-wider hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all rounded-none text-xs md:text-sm;
+    }
+
+    /* ===== SCROLL CONTAINER ===== */
+    .scroll-box {
+        @apply h-[500px] md:h-[600px] overflow-y-auto relative scroll-smooth border-t border-b border-black/10 dark:border-white/10 pr-2 lg:pr-6;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+        z-index: 1;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
+        touch-action: pan-y;
+    }
+
+    .dark .scroll-box {
+        scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+
+    .scroll-box::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .scroll-box::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .scroll-box::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .scroll-box::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    .dark .scroll-box::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .scroll-box::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .dark .scroll-box::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    /* ===== STICKY TITLE ===== */
+    .sticky-title {
+        @apply lg:sticky lg:top-32 self-start z-10 bg-white dark:bg-black;
+        padding-right: 1rem;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline-line {
+        @apply absolute left-5 top-0 bottom-0 w-0.5 bg-black/10 dark:bg-white/10;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease forwards;
+    }
+
+    .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.9s cubic-bezier(.19,1,.22,1);
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero-title span {
+        display: inline-block;
+        animation: floatText 6s ease-in-out infinite;
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .soft-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .gradient-text {
+        background: linear-gradient(135deg, #6366f1, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .floating-animation {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    .skill-tag {
+        @apply transition-all hover:translate-y-[-2px];
+    }
+
+    .skill-tag:hover {
+        box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+    }
+
+    /* ===== BASE STYLES ===== */
+    body {
+        cursor: default;
+    }
+
+    img {
+        user-select: none;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+}
+
+/* ===== GLOBAL SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 0;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #333;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+}
+
+/* ===== MOBILE MENU ===== */
+#mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    cursor: pointer;
+    z-index: 51;
+}
+
+#mobile-menu-btn i {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu-btn.active i {
+    color: #6366f1;
+}
+
+#mobile-menu {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#mobile-menu:not(.hidden) {
+    animation: slideInMenu 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeUp {
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes floatText {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes slideInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+@keyframes slide-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
+@media (max-width: 1440px) {
+    .sticky-title {
+        top: 100px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 1280px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2.25rem;
+    }
+    
+    .scroll-box {
+        max-height: 500px;
+    }
+    
+    .sticky-title {
+        top: 80px;
+    }
+    
+    .max-w-screen-xl {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 1080px) {
+    body {
+        font-size: 15px;
+    }
+    
+    h1 {
+        font-size: 2.75rem;
+        line-height: 1.1;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .scroll-box {
+        max-height: 450px;
+        padding-right: 0.75rem;
+    }
+    
+    .sticky-title {
+        position: static !important;
+        margin-bottom: 2rem;
+    }
+    
+    .gap-12 {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    .scroll-box {
+        max-height: none;
+        overflow-y: auto;
+        border-top: none;
+        border-bottom: none;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-y;
+    }
+}
+/* register property */
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* base */
+.btn-rotating {
+  position: relative;
+  padding: 0.85rem 1.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  overflow: hidden;
+  background: white;
+  z-index: 0;
+}
+
+/* border layer */
+.btn-rotating::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0deg,
+    black 120deg,
+    transparent 240deg
+  );
+  opacity: 0;
+  transition: opacity .25s ease;
+  z-index: -1;
+}
+
+/* inner */
+.btn-rotating::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  background: white;
+  z-index: -1;
+}
+
+/* hover */
+.btn-rotating:hover::before {
+  opacity: 1;
+  animation: rotate 1.5s linear infinite;
+}
+
+/* animation */
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* dark mode */
+.dark .btn-rotating,
+.dark .btn-rotating::after {
+  background: #0a0a0a;
+}
+
+.nav-anim {
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* underline */
+.nav-anim::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform .35s ease;
+}
+
+/* hover effect */
+.nav-anim:hover {
+  transform: translateY(-2px);
+}
+
+.nav-anim:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}

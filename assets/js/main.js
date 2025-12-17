@@ -199,4 +199,83 @@
 
   });
 
+  /**
+   * Smart scroll handling for scroll-box containers
+   * Allows seamless switching between horizontal and vertical scrolling on mobile
+   */
+  function initSmartScrollHandling() {
+    const scrollBoxes = document.querySelectorAll('.scroll-box');
+    
+    scrollBoxes.forEach(scrollBox => {
+      let isVerticalScroll = false;
+      let startX = 0;
+      let startY = 0;
+      let scrollStartX = 0;
+      let scrollStartY = 0;
+      
+      // Touch start event
+      scrollBox.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        scrollStartX = scrollBox.scrollLeft;
+        scrollStartY = scrollBox.scrollTop;
+        isVerticalScroll = false;
+      }, { passive: true });
+      
+      // Touch move event
+      scrollBox.addEventListener('touchmove', (e) => {
+        if (!startX || !startY) return;
+        
+        const currentX = e.touches[0].clientX;
+        const currentY = e.touches[0].clientY;
+        const diffX = Math.abs(currentX - startX);
+        const diffY = Math.abs(currentY - startY);
+        
+        // Determine scroll direction based on initial movement
+        if (diffX > diffY && diffX > 10) {
+          // Horizontal scroll detected
+          isVerticalScroll = false;
+        } else if (diffY > diffX && diffY > 10) {
+          // Vertical scroll detected
+          isVerticalScroll = true;
+        }
+      }, { passive: true });
+      
+      // Wheel event for better desktop support
+      scrollBox.addEventListener('wheel', (e) => {
+        const hasHorizontalScroll = scrollBox.scrollWidth > scrollBox.clientWidth;
+        const hasVerticalScroll = scrollBox.scrollHeight > scrollBox.clientHeight;
+        
+        // If only vertical scroll is available, let default behavior work
+        if (!hasHorizontalScroll && hasVerticalScroll) {
+          return;
+        }
+        
+        // Check if we're at horizontal bounds
+        const atLeftBound = scrollBox.scrollLeft === 0;
+        const atRightBound = scrollBox.scrollLeft >= (scrollBox.scrollWidth - scrollBox.clientWidth - 1);
+        
+        // If shift key is pressed, allow horizontal scroll
+        if (e.shiftKey) {
+          e.preventDefault();
+          scrollBox.scrollLeft += e.deltaY;
+          return;
+        }
+        
+        // If at horizontal bounds, allow vertical scroll
+        if ((atLeftBound || atRightBound) && hasVerticalScroll) {
+          return;
+        }
+        
+        // If there's horizontal scroll available and user scrolls, allow it
+        if (hasHorizontalScroll && !e.shiftKey && Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+          // Let vertical scroll work
+          return;
+        }
+      }, { passive: false });
+    });
+  }
+  
+  window.addEventListener('load', initSmartScrollHandling);
+
 })();
