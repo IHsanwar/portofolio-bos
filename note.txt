@@ -1,0 +1,2 @@
+versi mgz-3.0.1
+-last update: added education section and added loading animation

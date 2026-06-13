@@ -38,6 +38,14 @@
 <body
   class="bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text antialiased transition-colors duration-300">
 
+  <!-- Preloader Overlay -->
+  <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-black transition-opacity duration-500">
+    <div class="relative flex flex-col items-center">
+      <div class="w-16 h-16 border-4 border-black/10 dark:border-white/10 border-t-black dark:border-t-white rounded-full animate-spin"></div>
+      <p class="mt-4 text-xs font-bold tracking-[0.3em] uppercase opacity-50">Loading</p>
+    </div>
+  </div>
+
   <!-- Navbar -->
   <nav id="navbar"
     class="fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-black/2 dark:border-white/2 px-6 py-5 bg-white/90 dark:bg-black/90 backdrop-blur-sm">
@@ -73,6 +81,7 @@
     <a href="#about" class="mobile-link hover:text-gray-500">About</a>
     <a href="#projects" class="mobile-link hover:text-gray-500">Projects</a>
     <a href="#experience" class="mobile-link hover:text-gray-500">Experience</a>
+    <a href="#education" class="mobile-link hover:text-gray-500">Education</a>
     <a href="#contact"
       class="mobile-link text-lg font-sans font-normal uppercase tracking-widest mt-8 border-b border-current">Contact
       Me</a>
@@ -123,7 +132,7 @@
     <!-- Right: Image -->
     <div
       class="relative h-[50vh] lg:h-auto bg-gray-100 dark:bg-neutral-900 order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-black/10 dark:border-white/10 fade-up delay-200">
-      <img src="assets/img/herocode.jpg"
+      <img src="assets/img/bg.jpeg"
         class="w-full h-full object-cover grayscale opacity-90 mix-blend-multiply dark:mix-blend-normal"
         alt="Hero Image">
       <div
@@ -696,6 +705,15 @@ themeToggle.addEventListener('click', () => {
 
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Preloader Logic
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      preloader.classList.add('opacity-0');
+      setTimeout(() => {
+        preloader.classList.add('hidden');
+      }, 500); // Waktu ini harus sama dengan duration-500 di class transition
+    });
   </script>
   <script>
     const reveals = document.querySelectorAll('.reveal');
